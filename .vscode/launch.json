@@ -11,7 +11,7 @@
             "program": "${workspaceFolder}/build/Debug/apk2png.exe",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}/build/Debug/",
+            "cwd": "${workspaceFolder}",
             "environment": [],
             "console": "externalTerminal"
         }

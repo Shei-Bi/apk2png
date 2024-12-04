@@ -2,6 +2,8 @@
 cmake_minimum_required(VERSION 3.22)
 project(apk2png)
 
+set(CMAKE_CXX_STANDARD 17)
+
 # C++ headers and source files
 file(GLOB_RECURSE HEADERS src/*.h)
 file(GLOB_RECURSE SOURCES src/*.c src/*.cpp src/*.hpp)
