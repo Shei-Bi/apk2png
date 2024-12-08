@@ -13,8 +13,11 @@ void PngImage::paste(PngImage* other, int x, int y) {
     for (int i = y;i < other->height;i++) {
         for (int j = x;j < other->width;j++) {
             for (int k = 0;k < other->channels;k++) {
-                data[(i * width + j) * channels + k] = other->data[((i - y) * other->width + (j - x)) * other->channels + k];
+                getPixel(j, i)[k] = other->getPixel(j - x, i - y)[k];
             }
         }
     }
+}
+unsigned char* PngImage::getPixel(int x, int y) {
+    return &data[(y * width + x) * channels];
 }

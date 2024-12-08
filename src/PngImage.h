@@ -11,4 +11,5 @@ public:
     static PngImage* create(int, int, int);
 
     void paste(PngImage*, int, int);
+    unsigned char* getPixel(int, int);
 };

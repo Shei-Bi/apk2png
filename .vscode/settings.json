@@ -90,6 +90,7 @@
         "xmemory": "cpp",
         "xtr1common": "cpp",
         "*.rh": "cpp",
-        "tweetnacl.c": "cpp"
+        "tweetnacl.c": "cpp",
+        "string_view": "cpp"
     }
 }
