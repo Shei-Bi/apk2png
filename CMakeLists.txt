@@ -16,5 +16,5 @@ add_executable(${CLI_TARGET} ${HEADERS} ${SOURCES})
 #     FOLDER SupercellSDK/tools
 # )
 target_include_directories(${CLI_TARGET} PUBLIC include src)
-# target_link_directories(${CLI_TARGET} PUBLIC lib/)
-# target_link_libraries(${CLI_TARGET} PRIVATE supercell::flash glfw3)
+target_link_directories(${CLI_TARGET} PUBLIC lib)
+target_link_libraries(${CLI_TARGET} PRIVATE supercell-flash-static)
