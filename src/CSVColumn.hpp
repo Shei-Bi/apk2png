@@ -1,12 +1,11 @@
 #pragma once
-#include <string_view>
-#include <vector>
+#include "Supercell.hpp"
 
 class CSVColumn {
 public:
-    std::vector<std::string> strings;
-    std::vector<bool> booleans;
-    std::vector<int> integers;
+    LogicArrayList<String> strings;
+    LogicArrayList<bool> booleans;
+    LogicArrayList<int> integers;
     int type;
     CSVColumn(int type, int rowSize) {
         this->type = type;
@@ -33,5 +32,8 @@ public:
         case 2:
             return booleans.size();
         }
+    }
+    String& getStringValue(int row) {
+        return strings[row];
     }
 };

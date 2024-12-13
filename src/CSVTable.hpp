@@ -1,6 +1,4 @@
-#include <string_view>
-#include <string>
-#include <vector>
+#include "Supercell.hpp"
 #include <stdio.h>
 #include <algorithm>
 #include "CSVColumn.hpp"
@@ -8,16 +6,15 @@
 
 class CSVTable {
 public:
-    std::vector<std::string> columnNames;
-    std::vector<CSVColumn*> columns;
-    std::vector<CSVRow*> rows;
+    LogicArrayList<String> columnNames;
+    LogicArrayList<CSVColumn*> columns;
+    LogicArrayList<CSVRow*> rows;
     int rowSize;
-    CSVTable(int columnSize, int rowSize) {
+    CSVTable(int columnSize, int rowSize) :rowSize(rowSize) {
         if (columnSize <= 0) columnSize = 4;
         columnNames.reserve(columnSize);
         columns.reserve(columnSize);
         rows.reserve(rowSize);
-        this->rowSize = rowSize;
     }
     void addColumn(std::string& column) {
         columnNames.emplace_back(column);
@@ -68,5 +65,12 @@ public:
                 break;
             }
         }
+    }
+    int getRowCount() {
+        return rows.size();
+    }
+    String& getValueAt(int column, int row) {
+        if (column < -1) return String("");
+        return columns[column]->getStringValue(row);
     }
 };

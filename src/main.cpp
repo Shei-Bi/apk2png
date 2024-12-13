@@ -2,10 +2,14 @@
 #include "ResourceManager.h"
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
-#include "CSVNode.hpp"
-
+// #include "CSVNode.hpp"
+#include "LogicDataTables.hpp"
+enum DataType {
+    LocationTheme = 47
+};
 int main() {
-    CSVNode::fromFile("assets/location_themes.csv");
+    LogicDataTables::initDataTable(CSVNode::fromFile("assets/location_themes.csv"), LocationTheme);
+    // auto Default = TABLES[LocationTheme]->getDataByName("Default", NULL);
     auto result = PngImage::create(21 * 20, 33 * 20, 4);
     for (int i = 0;i < result->height;i++) {
         for (int j = 0;j < result->width;j++) {
